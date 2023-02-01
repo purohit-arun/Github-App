@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Github Repo App</string>
+    <string name="add_repo">Add Repo</string>
+</resources>
