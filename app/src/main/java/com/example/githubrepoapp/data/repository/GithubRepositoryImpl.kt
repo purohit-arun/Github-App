@@ -10,8 +10,8 @@ class GithubRepositoryImpl constructor(
     private val githubRemoteDatasource: GithubRemoteDatasource
 ) : GithubRepository {
     override suspend fun getListOfRepos(): List<ReposItem> {
-        val repoList: List<ReposItem> = listOf(
-            ReposItem(
+        var repoList: List<ReposItem>
+           /* ReposItem(
                 name = "Github-demo-project",
                 fullName = "purohit-arun/Github-demo-project",
                 description = "Project relate to github"
@@ -42,16 +42,20 @@ class GithubRepositoryImpl constructor(
                 fullName = "purohit-arun/css-projects",
                 description = "Css Project"
             )
-        )
+        )*/
 
-        /*try {
+       /* try {
             val response = githubRemoteDatasource.getRepos()
             val body = response.body()
             repoList = body!!.reposItem
-            //Log.i("Response Object", body.reposItem.toString())
+            Log.i("Response Object", body.reposItem.toString())
         } catch (e: Exception) {
             Log.i("MyTag", e.message.toString())
         }*/
+
+        val response = githubRemoteDatasource.getRepos()
+        val body = response.body()
+        repoList = body!!.reposItem
         return repoList
     }
 }
